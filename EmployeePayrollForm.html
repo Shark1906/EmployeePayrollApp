@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapies.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <title>Employee payroll form</title>
     <link rel="stylesheet" href="\css\addEmployee.css">
+    <script defer src="js\EmployeePayroll.js"></script>
 </head>
 
 <body>
@@ -21,7 +22,7 @@
     </header>
 
     <div class="form-content">
-        <form class="form" action="#" onsubmit="save();return false">
+        <form class="form" action="#" onsubmit="save(event);return false">
             <div class="form-head">
                 Employee payroll form
             </div>
@@ -164,14 +165,4 @@
         </form>
     </div>
 </body>
-
-<script>
-    const salary = document.querySelector('#salary');
-    const output = document.querySelector('.salary-output');
-    output.textContent = salary.value;
-    salary.addEventListener('input', function () {
-        output.textContent = salary.value;
-    });
-</script>
-
 </html>
