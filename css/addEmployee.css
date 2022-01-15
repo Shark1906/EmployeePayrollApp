@@ -221,3 +221,9 @@ a.button.hover{
 .range-slider{
     padding: 0px;
 }
+
+error-output {
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+}

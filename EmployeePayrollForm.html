@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapies.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <title>Employee payroll form</title>
     <link rel="stylesheet" href="\css\addEmployee.css">
+    <script defer src="js\payrollForm.js"></script>
+    <script defer src="js\EmployeePayroll.js"></script>
 </head>
 
 <body>
@@ -21,13 +23,14 @@
     </header>
 
     <div class="form-content">
-        <form class="form" action="#" onsubmit="save();return false">
+        <form class="form" action="#" onsubmit="save(event);return false" onreset="resetForm();return false">
             <div class="form-head">
                 Employee payroll form
             </div>
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
+                <error-output class="text-error" for="text"></error-output>
             </div>
 
             <div class="row-content">
@@ -127,21 +130,23 @@
                     </select>
                     <select id="month" name="Month">
                         <option value="" disabled selected>Month</option>
-                        <option value="Jan">January</option>
-                        <option value="Feb">Febuary</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="Aug">August</option>
-                        <option value="Sep">September</option>
-                        <option value="Oct">October</option>
-                        <option value="Nov">November</option>
-                        <option value="Dec">December</option>
+                        <option value="01">January</option>
+                        <option value="02">Febuary</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
                     </select>
                     <select id="year" name="Year">
                         <option value="" disabled selected>Year</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
@@ -149,6 +154,7 @@
                         <option value="2016">2016</option>
                     </select>
                 </div>
+                <error-output class="date-error" for="startDate"></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="notes">Notes</label>
@@ -164,14 +170,4 @@
         </form>
     </div>
 </body>
-
-<script>
-    const salary = document.querySelector('#salary');
-    const output = document.querySelector('.salary-output');
-    output.textContent = salary.value;
-    salary.addEventListener('input', function () {
-        output.textContent = salary.value;
-    });
-</script>
-
 </html>
