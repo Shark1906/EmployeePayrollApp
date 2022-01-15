@@ -1,5 +1,5 @@
 class EmployeePayroll{
-
+    
     get id() {return this._id;}
     set id(id){
         this._id = id;
@@ -39,17 +39,25 @@ class EmployeePayroll{
     }
 
     get startDate() {return this._startDate;}
-    set startDate(startDate){
+    set startDate(startDate) {
+        let curDate = new Date();
+        console.log(curDate);
+        if (startDate > curDate)
+            throw "Start date is future date";
+        var diff = Math.abs(curDate.getTime() - startDate.getTime());
+        console.log(startDate);
+        if (diff / (1000 * 60 * 60 * 24) > 30)
+            throw "Start date is beyond 30 days";
         this._startDate = startDate;
     }
 
     toString(){
-        const options = {year: 'numeric', month: 'long', day: 'numeric'};
-        const empDate = !this.startDate ? "undefined" :
-        this.startDate.toLocaleString("en-US", options);
+        // const options = {year: 'numeric', month: 'long', day: 'numeric'};
+        // const empDate = !this.startDate ? "undefined" :
+        // this.startDate.toLocaleString("en-US", options);
 
         return "id=" + this.id + ", name=" + this.name + ", gender=" + this.gender + ", ProfilePic=" + this.profilePic
-        + ", department=" + this.department + ", salary=" + this.salary + ", startDate=" + empDate + ", Note=" +
+        + ", department=" + this.department + ", salary=" + this.salary + ", startDate=" + this.startDate + ", Note=" +
         this.notes;        
     }
 }
